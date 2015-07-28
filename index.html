@@ -17,7 +17,20 @@
 	<svg id="svg" xmlns="http://www.w3.org/2000/svg"></svg>
 
 	<script>
+	var mousedown_time;
 	var radius = 10;
+
+	function getTime(){
+		var date = new Date();
+		return date.getTime();
+	}
+
+	document.onmousedown = function(e){
+		mousedown_time = getTime();
+	}
+	document.onmouseup = function(e){
+		radius = (getTime() - mousedown_time)/5;
+	}
 
 	function Circle(cx, cy, r, html_id)
 	{
